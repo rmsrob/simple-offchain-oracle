@@ -17,8 +17,8 @@ contract SimpleOracle {
         _;
     }
 
-    function updateBTCCap() public {
-        // Calls the callback function
+    // Calls the callback function
+    function updateBTCCap() public { 
         emit CallbackGetBTCCap();
     }
 

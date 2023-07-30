@@ -5,7 +5,7 @@ source .env
 
 FROM_SC=SimpleOracle
 DEPLOY_SC=Deployer
-DEPLOYED_FILENAME=oracle
+DEPLOYED_FILENAME=simple_oracle
 
 abi=$(jq -c "{abi: .abi}" ./out/$FROM_SC.sol/$FROM_SC.json)
 address=$(jq -c \
