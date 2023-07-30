@@ -16,27 +16,29 @@
 > description
 
 ## Install
-### Prerequisite
-> **Note**
->
->Required:
+> **Note** Prerequisite:
 - [Foundry](https://book.getfoundry.sh/getting-started/installation)
-- [Solidity](https://docs.soliditylang.org/)
-- [Geth](https://geth.ethereum.org/docs/install-and-build/installing-geth)
-- [Golang V1.19](https://go.dev/doc/install)
-- [Docker](https://docs.docker.com/get-started/overview/)
-- [Podman](https://podman-desktop.io/downloads)
-- [Hasura CLI](https://hasura.io/docs/latest/graphql/core/hasura-cli/install-hasura-cli.html)
-- [Next.js](https://nextjs.org/docs/basic-features)
 
 ```sh
-git clone git@github.com:rrobrms/simple-offchain-oracle.git
+git clone git@github.com:rmsrob/simple-offchain-oracle.git
 cd simple-offchain-oracle
-go mod tidy         # to download modules
-forge install       # to download the libs
+forge install
 ```
 
 ## Usage
+
+> call the Oracle
 ```sh
+sh ./test/cast/view_getBTCCap.sh
 ```
+
+> set value for the Oracle
+```sh
+sh ./test/cast/call_setBTCCap.sh
+```
+
 ## Deployment
+```sh
+make fork
+make deploy
+```
