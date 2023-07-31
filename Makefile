@@ -19,11 +19,14 @@ check_valid_key:
 		exit 1; \
 	fi
 
-.PHONY: init build clean rebuild test test-gas trace remappings
+.PHONY: init fmt build clean rebuild test test-gas trace remappings
 init: cmd-exists-forge
 	git submodule update --init --recursive
 	git update-index --assume-unchanged playground/*
 	forge install
+
+fmt: cmd-exists-forge
+	forge fmt
 
 build: cmd-exists-forge
 	forge build
