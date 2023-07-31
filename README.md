@@ -34,6 +34,11 @@ sh ./test/cast/view_getBTCCap.sh
 sh ./test/cast/call_setBTCCap.sh
 ```
 
+> call to emmit a trigger for the offchain Oracle
+```sh
+sh ./test/cast/view_updateBTCCap.sh
+```
+
 ## Deployment
 ```sh
 make fork

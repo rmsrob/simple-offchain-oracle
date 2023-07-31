@@ -15,6 +15,8 @@ cast call "$address" \
     --from $not_owner \
     "updateBTCCap()"
 
+echo "📢 $not_owner a user summon to update the mc!"
+
 cast logs --from-block $BLOCK_NUMBER_MAINNET --to-block latest --address $address "updateBTCCap()"
 
 # Stop impersonating not_owner.
