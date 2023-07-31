@@ -3,8 +3,7 @@ pragma solidity ^0.8.13;
 
 contract SimpleOracle {
     address public owner;
-
-    uint public btcMarketCap;
+    uint96 public btcMarketCap;
 
     event CallbackGetBTCCap();
 
@@ -17,17 +16,17 @@ contract SimpleOracle {
         _;
     }
 
-    // Calls the callback function
+    // Function to update the BTC market cap
+    function setBTCCap(uint96 cap) external onlyOwner {
+        btcMarketCap = cap;
+    }
+
+    // Notify to update the BTC market cap
     function updateBTCCap() public { 
         emit CallbackGetBTCCap();
     }
 
-    // Function to update the BTC market cap (called by the oracle application off-chain)
-    function setBTCCap(uint cap) external onlyOwner {
-        btcMarketCap = cap;
-    }
-
-    function getBTCCap() public view returns (uint) {
+    function getBTCCap() public view returns (uint96) {
         return btcMarketCap;
     }
 }

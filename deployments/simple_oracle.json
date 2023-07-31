@@ -16,9 +16,9 @@
       "name": "btcMarketCap",
       "outputs": [
         {
-          "internalType": "uint256",
+          "internalType": "uint96",
           "name": "",
-          "type": "uint256"
+          "type": "uint96"
         }
       ],
       "stateMutability": "view",
@@ -29,9 +29,9 @@
       "name": "getBTCCap",
       "outputs": [
         {
-          "internalType": "uint256",
+          "internalType": "uint96",
           "name": "",
-          "type": "uint256"
+          "type": "uint96"
         }
       ],
       "stateMutability": "view",
@@ -53,9 +53,9 @@
     {
       "inputs": [
         {
-          "internalType": "uint256",
+          "internalType": "uint96",
           "name": "cap",
-          "type": "uint256"
+          "type": "uint96"
         }
       ],
       "name": "setBTCCap",
@@ -71,6 +71,6 @@
       "type": "function"
     }
   ],
-  "address": "0x6D712CB50297b97b79dE784d10F487C00d7f8c2C",
-  "blockNumber": 17007702
+  "address": "0xE7FF84Df24A9a252B6E8A5BB093aC52B1d8bEEdf",
+  "blockNumber": 17007701
 }

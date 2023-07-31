@@ -7,7 +7,7 @@ import {SimpleOracle} from "../../src/SimpleOracle.sol";
 contract SimpleOracleTest is Test {
     SimpleOracle public oracle;
     address public owner;
-    uint public initialMarketCap;
+    uint96 public initialMarketCap;
 
     function setUp() public {
         // Deploy and set initial values for testing
@@ -24,7 +24,7 @@ contract SimpleOracleTest is Test {
 
     // Test that getBTCCap() returns the correct BTC market cap
     function testGetBTCCap() public {
-        uint currentMarketCap = oracle.getBTCCap();
+        uint96 currentMarketCap = oracle.getBTCCap();
         assertEq(currentMarketCap, initialMarketCap, "Unexpected initial BTC market cap");
     }
 }
