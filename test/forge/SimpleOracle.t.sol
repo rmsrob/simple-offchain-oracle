@@ -12,7 +12,6 @@ contract SimpleOracleTest is Test {
     function setUp() public {
         // Deploy and set initial values for testing
         oracle = new SimpleOracle();
-        owner = msg.sender;
         initialMarketCap = 10000000000;
         oracle.setBTCCap(initialMarketCap);
     }
@@ -20,7 +19,7 @@ contract SimpleOracleTest is Test {
     // Ensure that the deployer of the contract is the owner
     function testOwner() public {
         address actualOwner = oracle.owner();
-        assertEq(actualOwner, owner, "Unexpected contract owner");
+        assertEq(actualOwner, address(this), "Unexpected contract owner");
     }
 
     // Test that getBTCCap() returns the correct BTC market cap
