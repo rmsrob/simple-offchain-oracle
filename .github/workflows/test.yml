@@ -1,34 +1,29 @@
-name: test
+name: Test CI
 
-on: workflow_dispatch
-
-env:
-  FOUNDRY_PROFILE: ci
+on: push
 
 jobs:
-  check:
-    strategy:
-      fail-fast: true
+  build:
+    name: Unit tests
 
-    name: Foundry project
+    # env:
+    #   ETHEREUM_URL: ${{ secrets.ETHEREUM_URL }}
+    #   POLYGON_URL: ${{ secrets.POLYGON_URL }}
+    #   GOERLI_URL: ${{ secrets.GOERLI_URL }}
+    #   MUMBAI_URL: ${{ secrets.MUMBAI_URL }}
+
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: recursive
+      - uses: actions/checkout@v2
 
       - name: Install Foundry
-        uses: foundry-rs/foundry-toolchain@v1
+        uses: onbjerg/foundry-toolchain@v1
         with:
           version: nightly
 
-      - name: Run Forge build
-        run: |
-          forge --version
-          forge build --sizes
-        id: build
+      - name: Install dependencies
+        run: forge install
 
-      - name: Run Forge tests
-        run: |
-          forge test -vvv
-        id: test
+      - name: Run unit tests
+        run: forge test --match-path "test/forge/*"
